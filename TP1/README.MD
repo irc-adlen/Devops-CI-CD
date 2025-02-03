@@ -91,6 +91,12 @@ networks:
   my-network: # to create a network named "my-network"
 ```
 
+# 1-9 Document your publication commands and published images in dockerhub.
+
+`docker push krateros/httptp1:1.0`:
+
+- docker push <username>/<image_name> ==> to publish image
+
 # 1-10 Why do we put our images into an online repo?
 
 To make them publicy avaiable. Or to access it all the time (internet connection is mendatory)
