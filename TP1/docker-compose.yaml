@@ -1,21 +1,20 @@
 services:
   backtp1:
-    build:
-      dockerfile: ./backend/simple-api-student-main/Dockerfile
+    build: "backend/simple-api-student-main"
     networks:
       - my-network
     depends_on:
       - tp1db
 
   tp1db:
-    build:
-      dockerfile: ./db/Dockerfile
+    build: "db"
     networks:
       - my-network
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
 
   httptp1:
-    build:
-      dockerfile: ./http/Dockerfile
+    build: "http"
     ports:
       - "80:80"
     networks:

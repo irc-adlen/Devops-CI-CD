@@ -48,8 +48,48 @@ Due to:
 
 # 1-6 Why is docker-compose so important?
 
-
+To orchestrate containers in a smooth way.
 
 # 1-7 Document docker-compose most important commands.
 
+`docker compose up`: run all containers in the docker-compose.yml
+`docker compose up -d`: run all containers in the docker-compose.yml in background
+`docker compose up --build`: run all containers in the docker-compose.yml and rebuild images if Dockerfile
+
 # 1-8 Document your docker-compose file.
+
+```yaml
+services:
+  backtp1: # a service, the name is also a dns record inside the network
+    build:
+      dockerfile: ./backend/simple-api-student-main/Dockerfile
+    networks:
+      - my-network # the service will be part of this network
+    depends_on:
+      - tp1db 
+      # the service will depends on tp1db service, if tp1db failed to start, the service will not be built
+      # If tp1db is build successfully, the service will be built right after.
+
+  tp1db: # a service, the name is also a dns record inside the network
+    build:
+      dockerfile: ./db/Dockerfile # path of the dockerfile 
+    networks:
+      - my-network # the service will be part of this network
+    volumes:
+      - ./db/data:/var/lib/postgresql/data # to bind folders or file in the host machine for persistance in this way: <host>:<container>   
+
+  httptp1:
+    build:
+      dockerfile: ./http/Dockerfile
+    ports:
+      - "80:80" # to map a port from the container to the host machine in that way: <host>:<container>
+    networks:
+      - my-network # the service will be part of this network
+    depends_on:
+      - backtp1
+      # the service will depends on backtp1 service, if backtp1 failed to start, the service will not be built.
+      # If backtp1 is build successfully, the service will be built right after.
+
+networks:
+  my-network: # to create a network named "my-network"
+```
