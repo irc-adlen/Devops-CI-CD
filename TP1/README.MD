@@ -61,26 +61,23 @@ To orchestrate containers in a smooth way.
 ```yaml
 services:
   backtp1: # a service, the name is also a dns record inside the network
-    build:
-      dockerfile: ./backend/simple-api-student-main/Dockerfile
+    build: "backend/simple-api-student-main" # the path where the Dockerfile is located in order to build the image.
     networks:
       - my-network # the service will be part of this network
     depends_on:
-      - tp1db 
+      - tp1db
       # the service will depends on tp1db service, if tp1db failed to start, the service will not be built
       # If tp1db is build successfully, the service will be built right after.
 
   tp1db: # a service, the name is also a dns record inside the network
-    build:
-      dockerfile: ./db/Dockerfile # path of the dockerfile 
+    build: "db" # the path where the Dockerfile is located in order to build the image.
     networks:
       - my-network # the service will be part of this network
     volumes:
-      - ./db/data:/var/lib/postgresql/data # to bind folders or file in the host machine for persistance in this way: <host>:<container>   
+      - ./db/data:/var/lib/postgresql/data # to bind folders or file in the host machine for persistance in this way: <host>:<container>
 
-  httptp1:
-    build:
-      dockerfile: ./http/Dockerfile
+  httptp1: # a service, the name is also a dns record inside the network
+    build: "http" # the path where the Dockerfile is located in order to build the image.
     ports:
       - "80:80" # to map a port from the container to the host machine in that way: <host>:<container>
     networks:
