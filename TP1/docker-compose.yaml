@@ -1,6 +1,11 @@
 services:
   backtp1:
     build: "backend/simple-api-student-main"
+    container_name: backtp1
+    environment:
+      - URL=${URL}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     networks:
       - my-network
     depends_on:
@@ -8,6 +13,7 @@ services:
 
   tp1db:
     build: "db"
+    container_name: tp1db
     environment:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
@@ -19,6 +25,7 @@ services:
 
   httptp1:
     build: "http"
+    container_name: httptp1
     ports:
       - "80:80"
     networks:

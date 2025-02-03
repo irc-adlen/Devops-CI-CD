@@ -90,3 +90,7 @@ services:
 networks:
   my-network: # to create a network named "my-network"
 ```
+
+# 1-10 Why do we put our images into an online repo?
+
+To make them publicy avaiable. Or to access it all the time (internet connection is mendatory)
