@@ -22,6 +22,7 @@ COPY ./02-InsertData.sql /docker-entrypoint-initdb.d/02-InsertData.sql
 ```
 
 `docker run -p 5432:5432 -e POSTGRES_DB=db -e POSTGRES_USER=usr -e POSTGRES_PASSWORD=pwd -v C:\Users\PlanetDestroyer\Documents\Code\Devops-CI-CD\TP1\db\data:/var/lib/postgresql/data --name tp1db --network app-network krateros/dbtp1`
+
 - `-p`: port
 - `-e`: env vars
 - `-v`: mapped volume
@@ -30,9 +31,25 @@ COPY ./02-InsertData.sql /docker-entrypoint-initdb.d/02-InsertData.sql
 - `krateros/dbtp1`: image name
 
 # 1-4 Why do we need a multistage build? And explain each step of this dockerfile.
+
 - to reduce image size: just keep the run environment instead of all the build one and maybe the test one too
 - to have a clean Dockerfile: each step is sperated
 
 1. Build the image
 2. From the build env, only copy the jar file and execute it
 
+# 1-5 Why do we need a reverse proxy?
+
+Due to:
+
+- security: SSL
+- high-availability: load-balancing
+- centralized authentication/authorization: one server for all apps
+
+# 1-6 Why is docker-compose so important?
+
+
+
+# 1-7 Document docker-compose most important commands.
+
+# 1-8 Document your docker-compose file.

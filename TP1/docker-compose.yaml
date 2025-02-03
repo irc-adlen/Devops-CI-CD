@@ -1,0 +1,27 @@
+services:
+  backtp1:
+    build:
+      dockerfile: ./backend/simple-api-student-main/Dockerfile
+    networks:
+      - my-network
+    depends_on:
+      - tp1db
+
+  tp1db:
+    build:
+      dockerfile: ./db/Dockerfile
+    networks:
+      - my-network
+
+  httptp1:
+    build:
+      dockerfile: ./http/Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - my-network
+    depends_on:
+      - backtp1
+
+networks:
+    my-network:
