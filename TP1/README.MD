@@ -97,6 +97,12 @@ networks:
 
 - docker push <username>/<image_name> ==> to publish image
 
+Images:
+
+- https://hub.docker.com/repository/docker/krateros/httptp1
+- https://hub.docker.com/repository/docker/krateros/backtp1
+- https://hub.docker.com/repository/docker/krateros/tp1db
+
 # 1-10 Why do we put our images into an online repo?
 
 To make them publicy avaiable. Or to access it all the time (internet connection is mendatory)
