@@ -42,4 +42,7 @@ In order to make them accessible to other people (colleges, public, friends,...)
 
 # 2-4 Document your quality gate configuration.
 
-`run: mvn -B verify sonar:sonar -Dsonar.projectKey=irc-adlen_Devops-CI-CD -Dsonar.organization=irc-adlen -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./TP2/simple-api/pom.xml`
+1. create an organization on sonar
+2. link the project by setting the SONAR_TOKEN in github secrets and editing the action in order to run the sonar anamysis
+
+- optional: i can also create a separate action for sonar using the given configuration from sonar.
