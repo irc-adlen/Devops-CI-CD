@@ -35,3 +35,11 @@ jobs:
         run: mvn clean verify # action of the step
         working-directory: ./TP2/simple-api # directory where the action will be run
 ```
+
+# 2-3 For what purpose do we need to push docker images?
+
+In order to make them accessible to other people (colleges, public, friends,...)
+
+# 2-4 Document your quality gate configuration.
+
+`run: mvn -B verify sonar:sonar -Dsonar.projectKey=irc-adlen_Devops-CI-CD -Dsonar.organization=irc-adlen -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./TP2/simple-api/pom.xml`
