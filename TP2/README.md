@@ -25,12 +25,13 @@ jobs:
 
       #do the same with another action (actions/setup-java@v3) that enable to setup jdk 21
       - name: Set up JDK 21 # name of the step
-        uses: actions/setup-java@v4 # action of the step 
+        uses: actions/setup-java@v4 # action of the step
         with: # settings of the action
-          distribution: 'adopt' 
+          distribution: "corretto"
           java-version: "21"
 
       #finally build your app with the latest command
       - name: Build and test with Maven
-        run: mvn -B package --file ./TP2/simple-api/pom.xml
+        run: mvn clean verify
+        working-directory: ./TP2/simple-api
 ```
