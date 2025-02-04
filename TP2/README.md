@@ -27,11 +27,11 @@ jobs:
       - name: Set up JDK 21 # name of the step
         uses: actions/setup-java@v4 # action of the step
         with: # settings of the action
-          distribution: "corretto"
-          java-version: "21"
+          distribution: "corretto" # use the same distro as the "prod" env
+          java-version: "21" # use java 21 as the "prod" env
 
       #finally build your app with the latest command
-      - name: Build and test with Maven
-        run: mvn clean verify
-        working-directory: ./TP2/simple-api
+      - name: Build and test with Maven # name of the step
+        run: mvn clean verify # action of the step
+        working-directory: ./TP2/simple-api # directory where the action will be run
 ```
