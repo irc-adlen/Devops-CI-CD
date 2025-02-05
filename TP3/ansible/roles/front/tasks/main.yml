@@ -7,6 +7,3 @@
     pull: yes
     networks:
       - name: front
-    env:
-      VUE_APP_API_URL: http://adlen.cherif.takima.cloud:8888
-    env_file: /.env
