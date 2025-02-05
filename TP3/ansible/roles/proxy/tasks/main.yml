@@ -8,7 +8,7 @@
     pull: yes
     ports:
       - "80:80"
-      - "8888:8888"
+      - "8080:8080"
     networks:
       - name: outside
       - name: front
