@@ -8,4 +8,4 @@
     networks:
       - name: inside
     volumes:
-      - ./db/data:/var/lib/postgresql/data
+      - db-volume:/var/lib/postgresql/data

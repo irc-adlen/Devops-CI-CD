@@ -5,6 +5,11 @@
 - name: Copy dotenv file
   ansible.builtin.copy:
     src: /home/adlen/Devops-CI-CD/TP3/ansible/.env
-    dest: /.env
+    dest: .env
+
+- name: Copy httpd.conf file
+  ansible.builtin.copy:
+    src: /home/adlen/Devops-CI-CD/TP3/ansible/roles/proxy/httpd.conf
+    dest: httpd.conf
 
 

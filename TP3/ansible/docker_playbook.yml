@@ -5,8 +5,9 @@
   roles:
     # - docker
     - create_network
-    - copy_dotenv
+    - copy_files
     - database
     - app
+    - front
     - proxy
 

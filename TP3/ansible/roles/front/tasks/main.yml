@@ -1,0 +1,12 @@
+# Create front
+- name: Run front
+  docker_container:
+    name: front
+    hostname: front
+    image: krateros/tp-devops-front:latest
+    pull: yes
+    networks:
+      - name: front
+    env:
+      VUE_APP_API_URL: http://adlen.cherif.takima.cloud:8888
+    env_file: /.env

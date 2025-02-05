@@ -10,4 +10,8 @@
   community.docker.docker_network:
     name: outside
 
+- name: Create a network for front
+  community.docker.docker_network:
+    name: front
+
 
