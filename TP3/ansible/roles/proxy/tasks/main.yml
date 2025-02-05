@@ -1,0 +1,9 @@
+# Create proxy
+- name: Run proxy
+  docker_container:
+    name: httptp3
+    image: krateros/tp-devops-http-server:latest
+    ports:
+      - "80:80"
+    networks:
+      - name: outside

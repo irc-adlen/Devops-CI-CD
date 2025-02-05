@@ -1,0 +1,13 @@
+# Create network
+# - name: Create docker network
+#   command: docker network create app-network
+
+- name: Create a network for inside
+  community.docker.docker_network:
+    name: inside
+
+- name: Create a network for outside
+  community.docker.docker_network:
+    name: outside
+
+

@@ -1,0 +1,10 @@
+# Create database
+- name: Run database
+  docker_container:
+    name: tp3db
+    image: krateros/tp-devops-database:latest
+    env_file: /.env
+    networks:
+      - name: inside
+    volumes:
+      - ./db/data:/var/lib/postgresql/data

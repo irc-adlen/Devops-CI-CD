@@ -1,0 +1,12 @@
+- hosts: all
+  gather_facts: true
+  become: true
+
+  roles:
+    # - docker
+    - create_network
+    - copy_dotenv
+    - database
+    - app
+    - proxy
+

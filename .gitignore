@@ -25,3 +25,5 @@ replay_pid*
 
 # All data folder
 data/
+id_rsa
+TP3/ansible/.env

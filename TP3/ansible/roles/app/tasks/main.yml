@@ -1,0 +1,10 @@
+# Create app
+- name: Run app
+  docker_container:
+    name: simple-api
+    hostname: simple-api
+    image: krateros/tp-devops-simple-api:latest
+    networks:
+      - name: outside
+      - name: inside
+    env_file: /.env

@@ -46,3 +46,5 @@ In order to make them accessible to other people (colleges, public, friends,...)
 2. link the project by setting the SONAR_TOKEN in github secrets and editing the action in order to run the sonar anamysis
 
 - optional: i can also create a separate action for sonar using the given configuration from sonar.
+
+

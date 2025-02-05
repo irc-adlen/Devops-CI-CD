@@ -1,0 +1,10 @@
+# Create network
+# - name: Create docker network
+#   command: docker network create app-network
+
+- name: Copy dotenv file
+  ansible.builtin.copy:
+    src: /home/adlen/Devops-CI-CD/TP3/ansible/.env
+    dest: /.env
+
+
