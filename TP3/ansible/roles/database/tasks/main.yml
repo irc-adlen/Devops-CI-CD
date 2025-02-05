@@ -3,6 +3,7 @@
   docker_container:
     name: tp3db
     image: krateros/tp-devops-database:latest
+    pull: yes
     env_file: /.env
     networks:
       - name: inside

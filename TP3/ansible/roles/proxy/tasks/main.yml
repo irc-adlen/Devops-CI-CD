@@ -3,6 +3,7 @@
   docker_container:
     name: httptp3
     image: krateros/tp-devops-http-server:latest
+    pull: yes
     ports:
       - "80:80"
     networks:
