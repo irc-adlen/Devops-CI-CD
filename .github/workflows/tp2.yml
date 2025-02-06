@@ -77,3 +77,24 @@ jobs:
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-front:latest
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
+
+  run-playbooks:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      - name: Setup SSH 
+        shell: bash
+        run: |
+         eval `ssh-agent -s`
+         mkdir -p /home/runner/.ssh/
+         touch /home/runner/.ssh/id_rsa
+         echo -e "${{secrets.SSH_KEY}}" > TP3/ansible/inventories/id_rsa
+         chmod 700 TP3/ansible/inventories/id_rsa
+      - name: Run ansible script
+        shell: bash 
+        run: |
+          service ssh status
+          cd TP3/ansible
+          cat setup-prod.yml
+          ansible-playbook -i inventories/setup.yml docker_playbook.yml
+      
