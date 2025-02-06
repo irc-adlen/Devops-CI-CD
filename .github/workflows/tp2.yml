@@ -90,7 +90,7 @@ jobs:
           mkdir -p /home/runner/.ssh/
           touch TP3/ansible/inventories/id_rsa
           echo -e "${{secrets.SSH_KEY}}" > TP3/ansible/inventories/id_rsa
-          chmod 700 TP3/ansible/inventories/id_rsa
+          chmod 400 TP3/ansible/inventories/id_rsa
 
       - name: Setup ENV
         shell: bash
