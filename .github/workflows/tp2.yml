@@ -79,6 +79,7 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' }}
 
   run-playbooks:
+    needs: build-and-push-docker-image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
