@@ -1,9 +1,14 @@
 import Link from "next/link";
 
 export default async function Home() {
-  const departments = await (
-    await fetch(`http://${process.env.API_URL}/departments`)
-  ).json();
+  let departments = [];
+  try {
+    departments = await (
+      await fetch(`http://${process.env.API_URL}/departments`)
+    ).json();
+  } catch (error) {
+    console.error(error);
+  }
 
   return (
     <div>
