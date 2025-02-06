@@ -104,4 +104,4 @@ jobs:
         run: |
           ls -l ./TP3/ansible/inventories
           ls -al ./TP3/ansible
-          ansible-playbook -i ./TP3/ansible/inventories/setup.yml ./TP3/ansible/docker_playbook.yml
+          ansible-playbook -i ./TP3/ansible/inventories/setup.yml ./TP3/ansible/docker_playbook.yml -vvv
