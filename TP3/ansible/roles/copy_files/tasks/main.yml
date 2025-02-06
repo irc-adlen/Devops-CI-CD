@@ -6,7 +6,7 @@
 
 - name: Copy httpd.conf file
   ansible.builtin.copy:
-    src: TP3/ansible/roles/proxy/httpd.conf
+    src: roles/proxy/httpd.conf
     dest: httpd.conf
 
 
