@@ -90,10 +90,10 @@ jobs:
          touch /home/runner/.ssh/id_rsa
          echo -e "${{secrets.SSH_KEY}}" > TP3/ansible/inventories/id_rsa
          chmod 700 TP3/ansible/inventories/id_rsa
-      # - name: Run ansible script
-      #   shell: bash 
-      #   run: |
-      #     service ssh status
-      #     cd TP3/ansible
-      #     ansible-playbook -i inventories/setup.yml docker_playbook.yml
+      - name: Run ansible script
+        shell: bash 
+        working-directory: ./TP3/ansible
+        run: |
+          service ssh status
+          ansible-playbook -i inventories/setup.yml docker_playbook.yml
       
