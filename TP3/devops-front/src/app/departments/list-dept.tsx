@@ -19,7 +19,7 @@ export const ListDept: React.FC<ListDeptProps> = ({ apiUrl }) => {
     return () => {
       setDepartments([]);
     };
-  }, [apiUrl]);
+  }, []);
 
   return (
     <div className="flex flex-col space-y-2 items-center">
@@ -27,9 +27,9 @@ export const ListDept: React.FC<ListDeptProps> = ({ apiUrl }) => {
         <Link
           href={`/departments/${department.name}`}
           key={department.id}
-          className="flex justify-center items-center border rounded-lg p-2 hover:scale-110 cursor-pointer transition-transform ease-in-out duration-300"
+          className="flex justify-center items-center border rounded-lg p-2 hover:scale-110 cursor-pointer transition-transform ease-in-out duration-300 w-full"
         >
-          {department.name}
+          {department.id} - {department.name}
         </Link>
       ))}
     </div>
