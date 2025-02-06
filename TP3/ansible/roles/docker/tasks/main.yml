@@ -1,6 +1,3 @@
-# Check for docker installation
-
-
 # Install prerequisites for Docker
 - name: Install required packages
   apt:
