@@ -82,6 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
       - name: Setup SSH
         shell: bash
         run: |
@@ -90,6 +91,13 @@ jobs:
           touch /home/runner/.ssh/id_rsa
           echo -e "${{secrets.SSH_KEY}}" > TP3/ansible/inventories/id_rsa
           chmod 700 TP3/ansible/inventories/id_rsa
+
+      - name: Install Ansible
+        shell: bash
+        run: |
+          sudo apt update
+          sudo apt install -y ansible
+
       - name: Run ansible script
         shell: bash
         working-directory: ./TP3/ansible
