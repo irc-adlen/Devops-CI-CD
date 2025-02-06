@@ -51,16 +51,20 @@ export default function StudentsList({
 
   return (
     <>
-      <ul className="flex flex-col space-y-2 items-center">
-        {displayedStudents.map((student: any) => (
-          <li
-            key={student.id}
-            className="flex justify-center items-center border rounded-lg p-2 hover:scale-110 cursor-pointer transition-transform ease-in-out duration-300"
-          >
-            {student.firstname} {student.lastname}
-          </li>
-        ))}
-      </ul>
+      {displayedStudents.length === 0 ? (
+        <p className="text-red-500">No students found</p>
+      ) : (
+        <ul className="flex flex-col space-y-2 items-center">
+          {displayedStudents.map((student: any) => (
+            <li
+              key={student.id}
+              className="flex justify-center items-center border rounded-lg p-2 hover:scale-110 cursor-pointer transition-transform ease-in-out duration-300"
+            >
+              {student.firstname} {student.lastname}
+            </li>
+          ))}
+        </ul>
+      )}
       <form
         onSubmit={handleSubmit}
         className="flex space-x-2 items-center justify-center mt-2"

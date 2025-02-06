@@ -3,16 +3,22 @@ import StudentsList from "./student-list";
 export default async function DepartmentPage({
   params,
 }: {
-  params: { name: string };
+  params: Promise<{ name: string }>;
 }) {
   const { name } = await params;
-  const students = await (
-    await fetch(`http://${process.env.API_URL}/departments/${name}/students`)
-  ).json();
 
-  const department = await (
-    await fetch(`http://${process.env.API_URL}/departments/${name}`)
-  ).json();
+  const res = await fetch(
+    `http://${process.env.API_URL}/departments/${name}/students`
+  );
+
+  const res2 = await fetch(`http://${process.env.API_URL}/departments/${name}`);
+
+  if (!res.ok || !res2.ok) {
+    return <p className="text-red-500">Error fetching data from the API</p>;
+  }
+
+  const students = await res.json();
+  const department = await res2.json();
 
   return (
     <div className="flex flex-col space-y-2 items-center">
