@@ -95,6 +95,5 @@ jobs:
         run: |
           service ssh status
           cd TP3/ansible
-          cat setup-prod.yml
           ansible-playbook -i inventories/setup.yml docker_playbook.yml
       
