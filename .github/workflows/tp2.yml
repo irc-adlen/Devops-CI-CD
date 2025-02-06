@@ -103,5 +103,5 @@ jobs:
         shell: bash
         run: |
           ls -l ./TP3/ansible/inventories
-          ls -l ./TP3/ansible
+          ls -al ./TP3/ansible
           ansible-playbook -i ./TP3/ansible/inventories/setup.yml ./TP3/ansible/docker_playbook.yml
