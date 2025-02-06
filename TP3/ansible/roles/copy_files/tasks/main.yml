@@ -1,7 +1,7 @@
 # Create network
 - name: Copy dotenv file
   ansible.builtin.copy:
-    src: TP3/ansible/.env
+    src: .env
     dest: .env
 
 - name: Copy httpd.conf file
