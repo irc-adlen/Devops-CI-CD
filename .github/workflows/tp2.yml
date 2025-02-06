@@ -91,7 +91,7 @@ jobs:
           touch TP3/ansible/inventories/id_rsa
           echo -e "${{secrets.SSH_KEY}}" > TP3/ansible/inventories/id_rsa
           chmod 400 TP3/ansible/inventories/id_rsa
-          ssh-keyscan -t rsa,dsa,ecdsa,ed25519 adlen.cherif.takima.cloud >> ~/.ssh/known_hosts
+          ssh-keyscan -t rsa,dsa,ecdsa,ed25519 ${{secrets.SSH_HOST}} >> ~/.ssh/known_hosts
 
       - name: Setup ENV
         shell: bash
