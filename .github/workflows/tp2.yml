@@ -92,8 +92,14 @@ jobs:
           echo -e "${{secrets.SSH_KEY}}" > TP3/ansible/inventories/id_rsa
           chmod 700 TP3/ansible/inventories/id_rsa
 
+      - name: Setup ENV
+        shell: bash
+        run: |
+          touch TP3/ansible/.env
+          echo -e "${{secrets.ENV}}" > TP3/ansible/.env
+
       - name: Run ansible script
         shell: bash
-        run: | 
+        run: |
           ls -l ./TP3/ansible/inventories
           ansible-playbook -i ./TP3/ansible/inventories/setup.yml ./TP3/ansible/docker_playbook.yml
