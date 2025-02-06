@@ -80,18 +80,17 @@ jobs:
 
   run-playbooks:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - uses: actions/checkout@v3
-      - name: Setup SSH 
+      - name: Setup SSH
         shell: bash
         run: |
-         eval `ssh-agent -s`
-         mkdir -p /home/runner/.ssh/
-         touch /home/runner/.ssh/id_rsa
-         echo -e "${{secrets.SSH_KEY}}" > TP3/ansible/inventories/id_rsa
-         chmod 700 TP3/ansible/inventories/id_rsa
+          eval `ssh-agent -s`
+          mkdir -p /home/runner/.ssh/
+          touch /home/runner/.ssh/id_rsa
+          echo -e "${{secrets.SSH_KEY}}" > TP3/ansible/inventories/id_rsa
+          chmod 700 TP3/ansible/inventories/id_rsa
       - name: Run ansible script
-        shell: bash 
+        shell: bash
         working-directory: ./TP3/ansible
-        run: |
-          service ssh status      
+        run: ansible-playbook -i inventories/setup.yml docker_playbook.yml
