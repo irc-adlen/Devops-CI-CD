@@ -72,7 +72,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           # relative path to the place where source code with Dockerfile is located
-          context: ./TP3/devops-frontt
+          context: ./TP3/devops-front
           # Note: tags has to be all lower-case
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-front:latest
           # build on feature branches, push only on main branch
